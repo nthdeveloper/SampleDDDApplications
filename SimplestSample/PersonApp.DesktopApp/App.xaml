@@ -1,0 +1,11 @@
+﻿<Application x:Class="PersonApp.DesktopApp.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:PersonApp.DesktopApp"
+             xmlns:vm="clr-namespace:PersonApp.DesktopApp.ViewModels"
+             xmlns:v="clr-namespace:PersonApp.DesktopApp.Views"
+             Startup="App_Startup">
+    <Application.Resources>
+         
+    </Application.Resources>
+</Application>

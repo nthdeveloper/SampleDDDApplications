@@ -33,8 +33,9 @@
             </ListView.View>
         </ListView>
         <StackPanel Grid.Column="1" Orientation="Vertical">
-            <Button Content="Add" Margin="5" />
-            <Button Content="Remove" Margin="5"/>
+            <Button Command="{Binding RefreshCommand}" Content="{Binding RefreshCommand.Label}" Margin="5"/>            
+            <Button Command="{Binding AddCommand}" Content="{Binding AddCommand.Label}" Margin="5" />
+            <Button Command="{Binding RemoveCommand}" Content="{Binding RemoveCommand.Label}" Margin="5"/>            
         </StackPanel>
     </Grid>
 </Window>

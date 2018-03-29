@@ -55,6 +55,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Views\AddEditPersonView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -64,8 +68,17 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Commands\DelegateCommand.cs" />
+    <Compile Include="ViewContracts\IAddEditPersonView.cs" />
+    <Compile Include="ViewContracts\IView.cs" />
+    <Compile Include="ViewContracts\IWindowView.cs" />
+    <Compile Include="ViewFactories\DialogFactory.cs" />
+    <Compile Include="ViewFactories\IDialogFactory.cs" />
+    <Compile Include="ViewModels\AddEditPersonViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
+    <Compile Include="Views\AddEditPersonView.xaml.cs">
+      <DependentUpon>AddEditPersonView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>

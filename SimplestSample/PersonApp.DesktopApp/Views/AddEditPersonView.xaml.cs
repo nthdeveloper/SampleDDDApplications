@@ -10,27 +10,32 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
+using PersonApp.DesktopApp.ViewContracts;
 using PersonApp.DesktopApp.ViewModels;
-using PersonApp.Persistence.EntityFramework;
 
 namespace PersonApp.DesktopApp.Views
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for AddEditPersonView.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class AddEditPersonView : Window, IAddEditPersonView
     {
-        MainWindowViewModel m_ViewModel;
+        AddEditPersonViewModel m_ViewModel;
 
-        public MainWindow(MainWindowViewModel viewModel)
+        public AddEditPersonView(AddEditPersonViewModel viewModel)
         {
             InitializeComponent();
 
             m_ViewModel = viewModel;
+            m_ViewModel.View = this;
+            this.DataContext = viewModel;
+        }
 
-            this.DataContext = viewModel;            
-        }        
+        public void Close(bool result)
+        {
+            this.DialogResult = result;
+            this.Close();
+        }
     }
 }

@@ -15,6 +15,7 @@ namespace PersonApp.Persistence.EntityFramework
             using (PersonDbContext context = new PersonDbContext())
             {
                 var _addedEntity = context.Persons.Add(entity.ToPersonEntity());
+                context.SaveChanges();
                 return _addedEntity.ToDomainPerson();
             }
         }

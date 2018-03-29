@@ -35,6 +35,7 @@
         <StackPanel Grid.Column="1" Orientation="Vertical">
             <Button Command="{Binding RefreshCommand}" Content="{Binding RefreshCommand.Label}" Margin="5"/>            
             <Button Command="{Binding AddCommand}" Content="{Binding AddCommand.Label}" Margin="5" />
+            <Button Command="{Binding UpdateCommand}" Content="{Binding UpdateCommand.Label}" Margin="5" />
             <Button Command="{Binding RemoveCommand}" Content="{Binding RemoveCommand.Label}" Margin="5"/>            
         </StackPanel>
     </Grid>

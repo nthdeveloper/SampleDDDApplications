@@ -9,6 +9,7 @@ using PersonApp.DesktopApp.Views;
 using PersonApp.DesktopApp.ViewModels;
 using PersonApp.Services;
 using PersonApp.Persistence.EntityFramework;
+using PersonApp.DesktopApp.ViewFactories;
 
 namespace PersonApp.DesktopApp
 {
@@ -20,8 +21,9 @@ namespace PersonApp.DesktopApp
         void App_Startup(object sender, StartupEventArgs e)
         {
             IPersonService _personService = new PersonService(new PersonRepository());
+            IDialogFactory _dialogFactory = new DialogFactory();
 
-            MainWindow _mainView = new MainWindow(new MainWindowViewModel(_personService));
+            MainWindow _mainView = new MainWindow(new MainWindowViewModel(_personService, _dialogFactory));
             _mainView.Show();
         }
     }

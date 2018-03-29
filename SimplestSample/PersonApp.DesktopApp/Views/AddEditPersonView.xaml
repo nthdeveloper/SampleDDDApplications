@@ -1,0 +1,31 @@
+﻿<Window x:Class="PersonApp.DesktopApp.Views.AddEditPersonView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PersonApp.DesktopApp.Views"
+        mc:Ignorable="d"
+        Title="{Binding Title}" Height="150" Width="300">
+    <DockPanel>
+        <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" Height="30" HorizontalAlignment="Right">
+            <Button Command="{Binding SaveCommand}" Content="{Binding SaveCommand.Label}" />
+            <Button Command="{Binding CancelCommand}" Content="{Binding CancelCommand.Label}" Margin="10,0,0,0" />
+        </StackPanel>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="25"/>
+                <RowDefinition Height="25"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Label Grid.Row="0" Content="{Binding NameText}" />
+            <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding Person.Name, Mode=TwoWay}" />
+
+            <Label Grid.Row="1" Content="{Binding SurnameText}" />
+            <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Person.Surname, Mode=TwoWay}" />
+        </Grid>
+    </DockPanel>
+</Window>

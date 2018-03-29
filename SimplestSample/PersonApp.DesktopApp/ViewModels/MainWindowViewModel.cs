@@ -64,24 +64,14 @@ namespace PersonApp.DesktopApp.ViewModels
 
         private void executeAddCommand(object arg)
         {
-            var _window = m_DialogFactory.CreateAddEditPersonDialog(new AddEditPersonViewModel(m_PersonService, new Person() { Name = "", Surname = "" }));
-            var _result = _window.ShowDialog();
-            if(_result.HasValue && _result.Value)
-            {
-                executeRefreshCommand(null);
-            }
+            showAddEditDialog(new Person() { Name = "", Surname = "" });            
         }
 
         private void executeUpdateCommand(object arg)
         {
             if (m_SelectedPerson != null)
             {
-                var _window = m_DialogFactory.CreateAddEditPersonDialog(new AddEditPersonViewModel(m_PersonService, m_SelectedPerson));
-                var _result = _window.ShowDialog();
-                if (_result.HasValue && _result.Value)
-                {
-                    executeRefreshCommand(null);
-                }
+                showAddEditDialog(m_SelectedPerson);
             }
         }
 
@@ -92,6 +82,16 @@ namespace PersonApp.DesktopApp.ViewModels
                 if (m_PersonService.Remove(m_SelectedPerson.Id))
                     Persons.Remove(m_SelectedPerson);
             }
-        }              
+        }  
+        
+        private void showAddEditDialog(Person person)
+        {
+            var _window = m_DialogFactory.CreateAddEditPersonDialog(new AddEditPersonViewModel(m_PersonService, person));
+            var _result = _window.ShowDialog();
+            if (_result.HasValue && _result.Value)
+            {
+                executeRefreshCommand(null);
+            }
+        }            
     }
 }
